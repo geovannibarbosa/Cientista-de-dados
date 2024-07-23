@@ -1,138 +1,113 @@
-Avaliação - Cientista de dados I
+Avaliação - Cientista de Dados I
 Nome: Geovanni Barbosa Reis
-
-
-
 Questões:
-
 1.1 - Sua tarefa é criar: Uma estrutura de diretórios e nomenclatura de arquivos que permita armazenar as consultas de modo coerente
+Resposta:
 
-Resposta: 
-Para criar uma estrutura de diretórios e nomenclatura de arquivos que permita armazenar as consultas de modo coerente é necessário primeiramente analizar o que será consultado e como será consultado. Conforme disponibilizado anteriormente no exercício, os dados serão utilizados em um painel que responde perguntas do tipo: "Qual a quantidade de soja que o Brasil exportou para a China em 2020", sendo assim, na estrutura de diretórios deve se levar em consideração essas informações (pais de origem, pais destino, ano).
+Para criar uma estrutura de diretórios e nomenclatura de arquivos que permita armazenar as consultas de modo coerente, é necessário primeiramente analisar o que será consultado e como será consultado. Conforme disponibilizado anteriormente no exercício, os dados serão utilizados em um painel que responde perguntas do tipo: "Qual a quantidade de soja que o Brasil exportou para a China em 2020", sendo assim, na estrutura de diretórios deve-se levar em consideração essas informações (país de origem, país destino, ano).
 
 A estrutura sugerida é a seguinte:
 
-BRA/ARG/2019.txt representando respectivamente o pais de origem, o pais destino e o ano da busca.
-BRA/ARG/2020.txt //
-BRA/AFG/2019.txt //
-
-
-
+BRA/ARG/2019.txt representando respectivamente o país de origem, o país destino e o ano da busca.
+BRA/ARG/2020.txt
+BRA/AFG/2019.txt
 1.2 - Liste as etapas necessárias para integração de 3 anos (2019~2021) de comércio exterior
-
 Resposta:
-1ª Etapa - Definir o objetivo e ferramentas a serem utilizadas 
-O objetivo é buscar as informações da API a partir de um padrão de consulta, garantir a integridade dos dados e salva-los de forma organizada respeitando a estrutura adotada. As ferramentas a serem utilizadas seriam o Python com as bibliotecas request (para busca de dados), pandas (para tratamento dos dados) e OS (para direcionamento dos arquivos).
 
-2ª Etapa - Definir as consultas validas
-Antes de realizar a consulta, será feita uma verificação nos parâmetros para evitar consultas como (BRA, BRA, 2020) que já sabemos que é invalida, tendo em vista que a API permite 2500 consultas diárias, utiliza-las com dados invalidos seria um desperdício tanto de tempo quanto de consulta, além disso, deve ser considerado o tempo de uma consulta para a outra para que não sobre carregue a API.
+Definir o objetivo e ferramentas a serem utilizadas
 
-3ª Etapa - Definir as classes, métodos e atributos
-Para o código se tornar reutilizavel, modular, flexivel e com uma manutenção simplificada, seria adotado o conceito de programação orientação a objetos, e definir as classes, métodos e atributos antes é um grande diferêncial.
+Objetivo: Buscar as informações da API, garantir a integridade dos dados e salvá-los de forma organizada.
+Ferramentas: Python, bibliotecas requests (para busca de dados), pandas (para tratamento dos dados) e os (para direcionamento dos arquivos).
+Definir as consultas válidas
 
-4ª Etapa - Testar a API, solicitar alguns requests da API e trabalhar com eles em um dataframe para entender o funcionamento e o modelo de busca e resposta.
+Verificar parâmetros para evitar consultas inválidas (ex: BRA, BRA, 2020).
+Definir as classes, métodos e atributos
 
-5ª Etapa - Listar os paises e os anos que serão feitas as consultas 
-(ex: lista_paises=[BRA, ARG, AFG, ...]; ano=[2019, 2020, 2021, ...])
+Utilizar programação orientada a objetos para tornar o código reutilizável, modular e de fácil manutenção.
+Testar a API
 
-6ª Etapa - Solicitação e tratamento dos dados
-Utilizando a biblioteca requests, juntamente com as condições definidas nos 3 primeiros passos, os itens criados nas listas da 5ª Etapa seriam enviados para a API retornando os dados em um dataframe na biblioteca pandas.
+Realizar alguns requests da API e trabalhar com eles em um dataframe para entender o funcionamento.
+Listar os países e anos para consulta
 
-7ª Etapa - Salvar os arquivos
-Utilizando a biblioteca OS para direcionamento dos arquivos e utilizando o pandas salvar o dataframe em txt.
+Exemplo: lista_paises=[BRA, ARG, AFG, ...]; anos=[2019, 2020, 2021].
+Solicitação e tratamento dos dados
 
+Utilizar requests e pandas para enviar as listas de países e anos para a API e retornar os dados em um dataframe.
+Salvar os arquivos
 
-
-1.3 - Qual/Quais arquivo(s) da sua base de dados respondem a questão: 'Qual a
-quantidade de soja o Mundo importou do Brasil em 2020?'
-
+Utilizar os e pandas para salvar o dataframe em arquivos de texto.
+1.3 - Qual/Quais arquivo(s) da sua base de dados respondem a questão: 'Qual a quantidade de soja o Mundo importou do Brasil em 2020?'
 Resposta:
-A resposta para 'a quantidade de soja o Mundo importou do Brasil em 2020?' é:
+
+O arquivo que responde à questão "Qual a quantidade de soja o Mundo importou do Brasil em 2020?" é:
 
 BRA/WLD/2020.txt
-
-Tendo em vista que a estrutura adotada no exercício 1.1 considera respectivamente o pais de origem, o pais destino e o ano.
-
-
-
-1.4 - Sua base de dados alimenta um painel que possui informações de comércio exterior entre países – e também mundo. As consultas de comércio exterior podem ser feitas com os parâmetros M (‘mês’) ou A(‘ano’). A consulta M representa um report dos meses disponíveis no ano até então. A consulta A representa o report final/completo das imp/exp em determinado ano. Considere que cada país escolhe uma data “aleatória” do primeiro trimestre do novo ano para realizar o report final/completo das suas exportações e importações anuais do ano anterior.
-
+1.4 - Sua base de dados alimenta um painel que possui informações de comércio exterior entre países – e também mundo. As consultas de comércio exterior podem ser feitas com os parâmetros M (‘mês’) ou A (‘ano’). A consulta M representa um report dos meses disponíveis no ano até então. A consulta A representa o report final/completo das imp/exp em determinado ano. Considere que cada país escolhe uma data “aleatória” do primeiro trimestre do novo ano para realizar o report final/completo das suas exportações e importações anuais do ano anterior.
 Resposta:
-1ª Etapa - Definir o objetivo e ferramentas a serem utilizados
-O objetivo da questão é atualizar as informações garantindo integridade e organização dos dados, no entanto agora será utilizado algumas datas como referência de consulta. Sendo assim, sera utilizado as bibliotecas REQUESTS, PANDAS, OS, SCHEDULE e DATETIME.
 
-2ª Etapa - Definir as consultas validas
-Assim como na questão 1.2, iremos evitar consutas invalidas para que não haja desperdício.
+Definir o objetivo e ferramentas a serem utilizadas
 
-3ª Etapa - Definir classes, métodos e atributos
-Para o código se tornar reutilizavel, modular, flexivel e com uma manutenção simplificada, seria adotado o conceito de programação orientação a objetos, e definir as classes, métodos e atributos antes é um grande diferêncial.
+Objetivo: Atualizar as informações garantindo integridade e organização dos dados.
+Ferramentas: requests, pandas, os, schedule e datetime.
+Definir as consultas válidas
 
-4ª Etapa - Testar a API
-Iremos utilizar algumas consultas para entender o formato de solicitação e recebimento de dados.
+Evitar consultas inválidas.
+Definir classes, métodos e atributos
 
-5ª Etapa - Listar os paises, meses e anos para consulta
-(ex: lista_paises=[BRA, ARG, AFG, ...]; ano=[2019, 2020, 2021, ...]; mes=['01', '02', '03', ...])
+Utilizar programação orientada a objetos.
+Testar a API
 
-6ª Etapa - Definir as datas de report final
-Estabelecer datas "Aleatórias" no primeiro trimestre de cada ano para cada país. essas datas estarão presentes em um dicionário junto com a inicial do país (ex: data_report = 'BRA': '2025-03-15')
+Realizar algumas consultas para entender o formato de solicitação e recebimento de dados.
+Listar os países, meses e anos para consulta
 
-7ª Etapa - Verificação de datas para realização da consulta
-Verifica se a data é valida (posterior a data de report) e se a consulta irá buscar os dados Anuais ou Mensais (dependendo da data que foi feita a busca).
+Exemplo: lista_paises=[BRA, ARG, AFG, ...]; ano=[2019, 2020, 2021]; mes=['01', '02', '03', ...].
+Definir as datas de report final
 
-8ª Etapa - Salvar os arquivos
+Estabelecer datas "aleatórias" no primeiro trimestre de cada ano para cada país (ex: data_report = {'BRA': '2025-03-15'}).
+Verificação de datas para realização da consulta
+
+Verificar se a data é válida (posterior à data de report) e se a consulta busca dados anuais ou mensais.
+Salvar os arquivos
+
 Salvar os arquivos das consultas em arquivos de texto representando dados anuais ou mensais.
+Agendamento de atualizações
 
-9ª Etapa - Agendamento de atualizações
-Para garantir que a base de dados seja atualizada de modo recorrente, utilizarei a ferramenta schedule para agendar a execução das consultas.
-
-
-
-2 - Considere os arquivos públicos da Receita Federal disponíveis em:
-http://200.152.38.155/CNPJ/. A página é atualizada, na média, 1 vez ao mês: os nomes
-dos arquivos são fixos.
-Suponha que você precise automatizar o processo de baixar, empilhar e manter
-atualizado os arquivos de empresas (0~9). Considere que o site é instável, portanto, o
-arquivo baixado pode estar corrompido.
-Liste as etapas necessárias para que o dataset de empresas esteja sempre atualizado.
-
-Resposta:
-1ª Etapa - Definir o objetivo e as ferramentas
-O objetivo dessa questão é automatizar o dowload, verificar a integridade e atualizar de maneira automatica os arquivos de empresas disponibilizados pela Receita federal.
-Para realizar o exercicio utilizarei as bibliotecas REQUESTS, PANDAS, OS, SCHEDULE, DATETIME, HASHLIB e ZIPFILE
-
-2ª Etapa - Definir o nome dos arquivos
-Agora trabalharemos com arquivos já salvos, o que dificultará um pouco no processo pois teremos de definir o nome dos arquivos na hora de baixar (ex: [f"Empresa{num}.zip" for num in range(10)]).
-
-3ª Etapa - Verificar a integridade dos arquivos
-Como o arquivo pode vir corrompido, será utilizado a biblioteca HASHLIB para validar os arquivos, caso o arquivo esteja corrompido, o programa tentara uma nova busca, caso mesmo após 3 tentativas o programa não retorne o arquivo validado, será salvo uma nota para o analista onde alega que o arquivo na receita esta corrompido.
-
-4ª Etapa - Baixar os arquivos
-Salvar os arquivos localmente utilizando a biblioteca REQUESTS
-
-5ª Etapa - Organizar os dados
-Diferentemente das outras listas que eu considerei o que eu já havia determinado a forma de organização, neste exercício haveria uma nova estrutura de organização a ser adotada para salvar os dados.
-
-6ª Etapa - Extrair e processar os arquivos
-Utilizando a biblioteca ZIPFILE para extrair juntamente com o OS para destinar o arquivo.
-
-7ª Etapa - Agendamento das atualizações
-Assim como na questão anterior, utilizarei o SCHEDULE para agendar a execução periódica do código e garantir as atualizações constantes dos arquivos.
-
-
-
-3 - Escreva uma consulta SQL que retorne, para cada funcionário, o nome do
-departamento em que ele trabalhou pela primeira vez (baseado na data de início de
-trabalho), o nome do departamento onde ele está atualmente trabalhando, e a
-quantidade de departamentos diferentes em que ele já trabalhou. Use as tabelas
-employees, departments, e employee_department_history.
-
+Utilizar a ferramenta schedule para agendar a execução das consultas.
+2 - Considere os arquivos públicos da Receita Federal disponíveis em: Receita Federal. A página é atualizada, na média, 1 vez ao mês: os nomes dos arquivos são fixos. Suponha que você precise automatizar o processo de baixar, empilhar e manter atualizado os arquivos de empresas (0~9). Considere que o site é instável, portanto, o arquivo baixado pode estar corrompido. Liste as etapas necessárias para que o dataset de empresas esteja sempre atualizado.
 Resposta:
 
+Definir o objetivo e as ferramentas
+
+Objetivo: Automatizar o download, verificar a integridade e atualizar automaticamente os arquivos de empresas.
+Ferramentas: requests, pandas, os, schedule, datetime, hashlib e zipfile.
+Definir o nome dos arquivos
+
+Exemplo: [f"Empresa{num}.zip" for num in range(10)].
+Verificar a integridade dos arquivos
+
+Utilizar hashlib para validar os arquivos. Se corrompido, tentar nova busca (até 3 tentativas). Se ainda corrompido, notificar o analista.
+Baixar os arquivos
+
+Utilizar requests para salvar os arquivos localmente.
+Organizar os dados
+
+Adotar uma nova estrutura de organização para salvar os dados.
+Extrair e processar os arquivos
+
+Utilizar zipfile e os para extrair e direcionar os arquivos.
+Agendamento das atualizações
+
+Utilizar schedule para agendar a execução periódica do código.
+3 - Escreva uma consulta SQL que retorne, para cada funcionário, o nome do departamento em que ele trabalhou pela primeira vez (baseado na data de início de trabalho), o nome do departamento onde ele está atualmente trabalhando, e a quantidade de departamentos diferentes em que ele já trabalhou. Use as tabelas employees, departments, e employee_department_history.
+Resposta:
+
+sql
+Copiar código
 SELECT 
-    e.employee_name AS funcionario
-    , MIN(d1.departament_name) AS primeiro_departamento
-    , MAX(CASE WHEN edh.end_date IS NULL THEN d2.department_name END) AS atual_departamento
-    , COUNT(DISTINCT edh.department_id AS department_count) AS contagem_departamentos
+    e.employee_name AS funcionario,
+    MIN(d1.department_name) AS primeiro_departamento,
+    MAX(CASE WHEN edh.end_date IS NULL THEN d2.department_name END) AS atual_departamento,
+    COUNT(DISTINCT edh.department_id) AS contagem_departamentos
 FROM 
     employees AS e
 INNER JOIN
@@ -142,55 +117,35 @@ INNER JOIN
 LEFT JOIN
     departments AS d2 ON d2.department_id = edh.department_id AND edh.end_date IS NULL
 GROUP BY 
-    e.empoyee_name;
-
-
-
-4 - O arquivo exemplo1.parquet possui 7GB. O tempo de leitura e retorno de 1 linha específica
-são 5s - utilizando processamento paralelo (pyspark) em cluster. Contudo, você precisa criar
-uma API com recursos bem mais modestos, isto é, menor poder de processamento - mantendo
-o tempo de consulta rápido. Liste as alterações e procedimentos necessários para realizar
-isso.
-
+    e.employee_name;
+4 - O arquivo exemplo1.parquet possui 7GB. O tempo de leitura e retorno de 1 linha específica são 5s - utilizando processamento paralelo (pyspark) em cluster. Contudo, você precisa criar uma API com recursos bem mais modestos, isto é, menor poder de processamento - mantendo o tempo de consulta rápido. Liste as alterações e procedimentos necessários para realizar isso.
 Resposta:
-1ª Etapa - Pré-processamento
-Criar indices no arquivo Parquet para acelerar a busca por alguma linha específica ou de preferência converter para CSV.
 
-2ª Etapa - Armazenamento
-Converter os dados para um banco otimizado para consultas rápidas (ex: SQLite) ou até mesmo utilizar cache para consultas frequentes.
+Pré-processamento
 
-3ª Etapa - Otimização
-Utilizar bibliotecas para ler os dados parquet ou fragmentar os dados para ler apenas o necessário
+Criar índices no arquivo Parquet para acelerar a busca ou converter para CSV.
+Armazenamento
 
-4ª Etapa - Implementação da API
-Utilizar frameworks leves para desenvolver (ex: Flask)
+Converter os dados para um banco otimizado para consultas rápidas (ex: SQLite) ou utilizar cache para consultas frequentes.
+Otimização
 
-5ª Etapa - Monitoramento
-Verificar o desempenho da API e realizar ajustes para que o tempo de resposta permaneça no estimado.
+Utilizar bibliotecas eficientes para ler os dados Parquet ou fragmentar os dados para ler apenas o necessário.
+Implementação da API
 
+Utilizar frameworks leves como Flask.
+Monitoramento
 
-
-5 - Você foi instruído a criar um modelo de regressão baseado em um modelo econométrico. Ao
-terminar a implementação você verificou que o resultado está abaixo do esperado. Liste o que
-poderia ser feito para melhorar o resultado.
-
+Verificar o desempenho da API e ajustar para manter o tempo de resposta estimado.
+5 - Você foi instruído a criar um modelo de regressão baseado em um modelo econométrico. Ao terminar a implementação você verificou que o resultado está abaixo do esperado. Liste o que poderia ser feito para melhorar o resultado.
 Resposta:
-1º Verificar se os dados estão coerentes
-2º Verificar se os Outliers não estão alterando o resultado da busca e tratalos caso seja possivel
-3º Verificar se todas as variáveis foram levadas em consideração
-4º Regularizar com Lasso para generalizar o modelo
-5º Fazer uma validação cruzada
-6º Ajustar o modelo com base nas análises e melhorias implementadas.
 
+Verificar a coerência dos dados.
+Tratar outliers que possam estar alterando o resultado.
+Verificar se todas as variáveis relevantes foram consideradas.
+Aplicar regularização (ex: Lasso) para evitar overfitting.
+Realizar validação cruzada.
+Ajustar o modelo com base nas análises e melhorias implementadas.
+6 - ELT e ETL são termos comuns na rotina de trabalho de especialistas em Soluções de Tecnologia da Informação, justamente por representarem estratégias de pipelines de integração de dados em um determinado projeto. Sobre esses procedimentos, é correto afirmar que:
+Resposta:
 
-
-
-6 - ELT e ETL são termos comuns na rotina de trabalho de especialistas em Soluções de
-Tecnologia da Informação, justamente por representarem estratégias de pipelines de integração
-de dados em um determinado projeto. Sobre esses procedimentos, é correto afirmar que:
-
-Resposta: D
-
-d) Estrutura de dados em nuvem são ideais para a adoção de estratégias ELT, devido a
-maior rapidez no carregamento dos dados e a adequada capacidade de processamento
-posterior.
+d) **Estrutura de dados em nuvem são
