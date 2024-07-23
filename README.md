@@ -1,1 +1,1 @@
-As respostas da avaliação estão presentes no arquivo (Geovanni_Barbosa.txt)
+As respostas da avaliação estão presentes no arquivo Geovanni_Barbosa.txt
